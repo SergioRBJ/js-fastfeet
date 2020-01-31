@@ -1,0 +1,7 @@
+postgre-fastfeet:
+  image: postgres:11.5-alpine
+  ports:
+    - "5432:5432"
+  environment:
+    POSTGRES_PASSWORD: postgre
+    POSTGRES_DB: fastfeet
