@@ -8,6 +8,7 @@ import SessionController from './app/controllers/SessionController';
 import RecipientController from './app/controllers/RecipientController';
 import AvatarController from './app/controllers/AvatarController';
 import SenderController from './app/controllers/SenderController';
+import DeliveryController from './app/controllers/DeliveryController';
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -30,5 +31,10 @@ routes.get('/sender', SenderController.index);
 routes.post('/sender', SenderController.store);
 routes.put('/sender', SenderController.update);
 routes.delete('/sender/:id', SenderController.destroy);
+
+routes.post('/delivery', DeliveryController.store);
+routes.get('/delivery', DeliveryController.index);
+routes.put('/delivery', DeliveryController.update);
+routes.delete('/delivery/:id', DeliveryController.destroy);
 
 export default routes;

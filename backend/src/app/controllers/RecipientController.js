@@ -66,11 +66,8 @@ class RecipientControler {
 
     const { id, name } = req.body;
 
-    const recipient = await Recipient.findByPk(req.body.id);
-
-    const recipientExists = await Recipient.findOne({
-      where: { name },
-    });
+    const recipient = await Recipient.findByPk(id);
+    const recipientExists = await Recipient.findOne({ where: { name } });
 
     if (recipientExists) {
       return res.status(400).json({ error: 'Recipient already exists.' });
@@ -105,12 +102,12 @@ class RecipientControler {
     if (!recipient) {
       return res
         .status(400)
-        .json({ error: 'The recipient ID does not exists.' });
+        .json({ error: `The recipient ID doesn't exists.` });
     }
 
     await Recipient.destroy({ where: { id } });
 
-    return res.json(`The registration with id ${id} has been deleted.`);
+    return res.json(`The recipient with id ${id} has been deleted.`);
   }
 
   async index(req, res) {

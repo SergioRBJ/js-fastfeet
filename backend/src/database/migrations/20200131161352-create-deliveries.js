@@ -23,24 +23,21 @@ module.exports = {
       },
       signature_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'recipients', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
         allowNull: true,
       },
       product: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      canceled_at: {
-        type: Sequelize.DATE,
-        AllowNull: true,
-      },
       start_date: {
         type: Sequelize.DATE,
         AllowNull: true,
       },
       end_date: {
+        type: Sequelize.DATE,
+        AllowNull: true,
+      },
+      canceled_at: {
         type: Sequelize.DATE,
         AllowNull: true,
       },
