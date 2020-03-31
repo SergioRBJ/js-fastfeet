@@ -5,20 +5,32 @@ class Delivery extends Model {
     super.init(
       {
         product: Sequelize.STRING,
-        signature_id: Sequelize.BIGINT,
+        canceled_at: Sequelize.DATE,
         start_date: Sequelize.DATE,
         end_date: Sequelize.DATE,
-        canceled_at: Sequelize.DATE,
+        status: Sequelize.STRING,
       },
-      { sequelize }
+      {
+        sequelize,
+      }
     );
 
     return this;
   }
 
   static associate(models) {
-    this.belongsTo(models.Recipient, { foreignKey: 'recipient_id', as: 'recipient' });
-    this.belongsTo(models.Sender, { foreignKey: 'sender_id', as: 'sender' });
+    this.belongsTo(models.Recipient, {
+      foreignKey: 'recipient_id',
+      as: 'recipient',
+    });
+    this.belongsTo(models.Sender, {
+      foreignKey: 'sender_id',
+      as: 'sender',
+    });
+    this.belongsTo(models.Avatar, {
+      foreignKey: 'signature_id',
+      as: 'signature',
+    });
   }
 }
 

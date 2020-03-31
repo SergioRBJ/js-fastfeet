@@ -5,3 +5,13 @@ postgre-fastfeet:
   environment:
     POSTGRES_PASSWORD: postgre
     POSTGRES_DB: fastfeet
+
+mongodb-fastfeet:
+  image: mongo
+  ports:
+    - "27017:27017"
+
+redis-fastfeet:
+  image: redis:alpine
+  ports:
+    - "6379:6379"
