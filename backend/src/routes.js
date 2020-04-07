@@ -29,17 +29,13 @@ routes.post('/sessions', SessionController.store);
 routes.get('/sender/:id/pendings', DeliveryPendingController.index);
 routes.get('/sender/:id/deliveries', DeliveryDeliveredController.index);
 routes.put(
-  '/sender/:senderId/delivery/:deliveryId',
-  DeliveryPickupController.update
-);
-routes.put(
-  '/deliveryman/:senderId/delivery/:deliveryId/done',
+  '/sender/:senderId/delivery/:deliveryId/done',
   DeliveryDoneController.update
 );
 
 routes.post('/delivery/:id/problems', DeliveryProblemController.store);
 
-routes.get('/deliverymen/:id', SenderController.show);
+routes.get('/sender/:id', SenderController.show);
 
 routes.use(authMiddleware);
 

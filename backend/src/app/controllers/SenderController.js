@@ -92,6 +92,27 @@ class SenderControler {
 
     return res.status(200).json(sender);
   }
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    const sender = await Sender.findByPk(id, {
+      attributes: ['id', 'name', 'email', 'created_at'],
+      include: [
+        {
+          model: Avatar,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url'],
+        },
+      ],
+    });
+
+    if (!sender) {
+      return res.status(400).json({ error: 'Sender does not exists' });
+    }
+
+    return res.json(sender);
+  }
 }
 
 export default new SenderControler();
