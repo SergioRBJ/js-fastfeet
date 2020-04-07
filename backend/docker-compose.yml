@@ -3,7 +3,7 @@ postgre-fastfeet:
   ports:
     - "5432:5432"
   environment:
-    POSTGRES_PASSWORD: postgre
+    POSTGRES_PASSWORD: postgres
     POSTGRES_DB: fastfeet
 
 mongodb-fastfeet:
