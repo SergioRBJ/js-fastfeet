@@ -27,7 +27,7 @@ class Delivery extends Model {
       foreignKey: 'sender_id',
       as: 'sender',
     });
-    this.belongsTo(models.Avatar, {
+    this.belongsTo(models.File, {
       foreignKey: 'signature_id',
       as: 'signature',
     });

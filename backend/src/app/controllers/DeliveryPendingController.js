@@ -1,11 +1,9 @@
-import { Op } from 'sequelize';
-
 import Sender from '../models/Sender';
 import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
 
-class DeliveryDeliveredController {
+class DeliveryPendingController {
   async index(req, res) {
     const { id: senderId } = req.params;
 
@@ -17,9 +15,11 @@ class DeliveryDeliveredController {
 
     const deliveries = await Delivery.findAll({
       where: {
-        signature_id: { [Op.not]: null },
         sender_id: senderId,
+        signature_id: null,
+        canceled_at: null,
       },
+      order: ['id'],
       attributes: [
         'id',
         'sender_id',
@@ -29,7 +29,6 @@ class DeliveryDeliveredController {
         'end_date',
         'canceled_at',
       ],
-      order: ['id'],
       include: [
         {
           model: Recipient,
@@ -57,4 +56,4 @@ class DeliveryDeliveredController {
   }
 }
 
-export default new DeliveryDeliveredController();
+export default new DeliveryPendingController();

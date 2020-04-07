@@ -126,6 +126,29 @@ class RecipientControler {
 
     return res.status(200).json(recipient);
   }
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    const recipient = await Recipient.findByPk(id, {
+      attributes: [
+        'id',
+        'name',
+        'street',
+        'number',
+        'complement',
+        'state',
+        'city',
+        'zipcode',
+      ],
+    });
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient does not exists' });
+    }
+
+    return res.json(recipient);
+  }
 }
 
 export default new RecipientControler();

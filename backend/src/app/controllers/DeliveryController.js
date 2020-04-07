@@ -104,6 +104,32 @@ class DeliveryControler {
     return res.status(200).json(delivery);
   }
 
+  async show(req, res) {
+    const { id } = req.params;
+
+    const delivery = await Delivery.findByPk(id, {
+      attributes: ['id', 'product'],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: ['id', 'name'],
+        },
+        {
+          model: Sender,
+          as: 'sender',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    if (!delivery) {
+      return res.status(400).json({ error: 'Delivery does not exists' });
+    }
+
+    return res.json(delivery);
+  }
+
   async destroy(req, res) {
     const { id } = req.params;
 

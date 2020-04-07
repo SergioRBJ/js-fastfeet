@@ -7,9 +7,10 @@ import Recipient from '../app/models/Recipient';
 import Avatar from '../app/models/Avatar';
 import Sender from '../app/models/Sender';
 import Delivery from '../app/models/Delivery';
+import File from '../app/models/File';
 import mongoConfig from '../config/mongo';
 
-const models = [User, Recipient, Avatar, Sender, Delivery];
+const models = [User, Recipient, Avatar, Sender, Delivery, File];
 
 class Database {
   constructor() {
