@@ -10,7 +10,7 @@ class Recipient extends Model {
         details: Sequelize.STRING,
         state: Sequelize.STRING,
         city: Sequelize.STRING,
-        zipcode: Sequelize.INTEGER,
+        zipcode: Sequelize.STRING,
       },
       { sequelize }
     );

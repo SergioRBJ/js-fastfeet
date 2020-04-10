@@ -20,10 +20,8 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.get('/', (_, res) => res.send({ message: 'Welcome to FastFeet!' }));
-
 routes.post('/avatar/:id/', upload.single('file'), AvatarController.store);
 routes.post('/files', upload.single('file'), FileController.store);
-
 routes.post('/sessions', SessionController.store);
 
 routes.get('/sender/:id/pendings', DeliveryPendingController.index);

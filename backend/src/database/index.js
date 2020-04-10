@@ -28,7 +28,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      `mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
+      `mongodb://${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
       {
         useNewUrlParser: true,
         useFindAndModify: true,

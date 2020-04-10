@@ -10,7 +10,7 @@ class RecipientControler {
       details: Yup.string(),
       state: Yup.string().required(),
       city: Yup.string().required(),
-      zipcode: Yup.number().required(),
+      zipcode: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {
