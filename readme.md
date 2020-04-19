@@ -52,7 +52,7 @@ Depois dos servidores configurados, crie seu arquivo ```.env``` na raiz pois tem
 
 ### Subindo a aplicação
 
-> Próximos comando deverão ser executados à partir da pasta ```backend```.
+> Próximos comandos deverão ser executados à partir da pasta ```backend```.
 
 Instale os pacotes:
 ```shell
@@ -80,5 +80,33 @@ Populando as tabelas com dados para teste:
 ```shell
     $ yarn sequelize db:seed:all
 ```
+## Frontend - React
 
+### Funcionalidades
 
+    * Gerenciamento de estados globais com Redux.
+    * Estilização de componentes com Styled Components.
+    * Estilização e padronização do código com EditorConfig, ESLint e Prettier.
+
+### Subindo a aplicação
+
+> Próximos comandos deverão ser executados à partir da pasta ```web```.
+
+Instale os pacotes:
+```shell
+    $ yarn
+```
+
+Inicie a aplicação:
+```shell
+    $ yarn dev
+```
+
+## Mobile - React Native
+
+### Funcionalidades
+
+    * Gerenciamento de estados globais com Redux.
+    * Estilização de componentes com Styled Components.
+    * Estilização e padronização do código com EditorConfig, ESLint e Prettier.
+    * inserção de fotos com React Camera.
